@@ -1,20 +1,25 @@
-Text Hackathon Project
+# Text Hackathon Project
 
 Dit project is de basis voor onze 8-uur hackathon waarin we een gecombineerde oplossing bouwen met:
-	•	Regex-gebaseerde rules
-	•	Neuraal netwerk + embeddings
-	•	LLM-API classificatie
-	•	Ensemble/Orchestrator die deze drie samenvoegt
 
-We gebruiken uv als package manager.
+- Regex-gebaseerde rules
+- Neuraal netwerk + embeddings
+- LLM-API classificatie
+- Ensemble/Orchestrator die deze drie samenvoegt
 
-Installatie
+We gebruiken **uv** als package manager.
 
+## Installatie
+
+```bash
 git clone https://github.com/NReinders/text-hackaton.git
 cd text-hackathon
 uv sync
+```
 
+## Projectstructuur
 
+```text
 text-hackathon/
 ├── data/
 │   ├── raw/            # originele data (gedeeld in team)
@@ -29,8 +34,8 @@ text-hackathon/
 │       ├── ensemble.py       # combineert regex + nn + llm
 │       ├── data.py           # dataloading / preprocessing
 │       ├── config.py         # instellingen per developer/experiment
-│       └── run_experiment.py # hoofdscript om alles bij elkaar te brengen
+│       └── run_experiment.py # hoofdcscript om alles bij elkaar te brengen
 ├── tests/              # basic tests (smoke tests)
 ├── main.py             # standaard uv entrypoint (niet essentieel)
 └── pyproject.toml      # uv project configuratie
-
+```
