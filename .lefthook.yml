@@ -1,0 +1,17 @@
+---
+pre-commit:
+  commands:
+    ruff-check:
+      files: git ls-files
+      glob: '*.py'
+      run: uv run ruff check {staged_files} --fix
+    ruff-format:
+      files: git ls-files
+      glob: '*.py'
+      run: uv run ruff format {staged_files}
+      stage_fixed: true
+    clean-jupyter:
+      files: git ls-files
+      glob: '*.ipynb'
+      run: uv run jupyter nbconvert --clear-output --inplace {staged_files}
+      stage_fixed: true
