@@ -1,18 +1,100 @@
+[build-system]
+requires = ["uv_build>=0.9.12,<0.10.0"]
+build-backend = "uv_build"
+
 [project]
 name = "text-hackathon"
 version = "0.1.0"
+authors = [
+    { name = "Max Nollet", email = "mjh.nollet@student.han.nl" },
+    { name = "Mischa Peters", email = "mb.peters2@student.han.nl" },
+    { name = "Nick Reinders", email = "nr.reinders@student.han.nl" },
+    { name = "Wouter van Huis", email = "wm.vanhuis@student.han.nl" },
+]
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "matplotlib>=3.10.7",
-    "mlflow>=3.6.0",
     "numpy>=2.3.5",
     "pandas>=2.3.3",
-    "python-dotenv>=1.2.1",
+    "polars>=1.35.2",
     "requests>=2.32.5",
     "scikit-learn>=1.7.2",
     "seaborn>=0.13.2",
-    "torch>=2.9.1",
-    "transformers>=4.57.1",
 ]
+
+[project.urls]
+Homepage = "https://github.com/NReinders/text-hackaton"
+Issues = "https://github.com/NReinders/text-hackaton/issues"
+
+[project.optional-dependencies]
+cpu = ["torch>=2.9.1"]
+xpu = ["pytorch-triton-xpu>=3.5.0", "torch>=2.9.1"]
+cu128 = ["torch>=2.9.1"]
+cu130 = ["torch>=2.9.1"]
+rocm = ["pytorch-triton-rocm>=3.5.1", "torch>=2.9.1"]
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.148.2",
+    "ipykernel>=7.1.0",
+    "mlflow>=3.6.0",
+    "nbconvert>=7.16.6",
+    "notebook>=7.5.0",
+    "pytest>=9.0.1",
+    "ruff>=0.14.6",
+]
+
+[tool.uv]
+conflicts = [
+    [
+        { extra = "cpu" },
+        { extra = "xpu" },
+        { extra = "cu128" },
+        { extra = "cu130" },
+        { extra = "rocm" },
+    ],
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-xpu", extra = "xpu" },
+    { index = "pytorch-cu128", extra = "cu128" },
+    { index = "pytorch-cu130", extra = "cu130" },
+    { index = "pytorch-rocm", extra = "rocm" },
+]
+# Intel GPU support relies on `pytorch-triton-xpu`, which
+# should also be installed from the PyTorch index (and 
+# included in `project.dependencies`).
+pytorch-triton-xpu = [{ index = "pytorch-xpu", extra = "xpu" }]
+# ROCm6 support relies on `pytorch-triton-rocm`, which
+# should also be installed from the PyTorch index (and
+# included in `project.dependencies`).
+pytorch-triton-rocm = [{ index = "pytorch-rocm", extra = "rocm" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-xpu"
+url = "https://download.pytorch.org/whl/xpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/rocm6.4"
+explicit = true
