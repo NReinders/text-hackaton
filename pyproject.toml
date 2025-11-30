@@ -15,6 +15,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "loguru>=0.7.3",
     "matplotlib>=3.10.7",
     "numpy>=2.3.5",
     "pandas>=2.3.3",
@@ -42,6 +43,7 @@ dev = [
     "mlflow>=3.6.0",
     "nbconvert>=7.16.6",
     "notebook>=7.5.0",
+    "pip>=25.3",
     "pytest>=9.0.1",
     "ruff>=0.14.6",
 ]
@@ -102,3 +104,14 @@ explicit = true
 
 [tool.ruff]
 line-length = 79
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # Pyflakes
+    "I",   # isort
+    "NPY", # NumPy-specific rules
+    "PD",  # pandas-vet
+    "N",   # pep8-naming
+]

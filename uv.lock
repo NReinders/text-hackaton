@@ -1429,6 +1429,19 @@ wheels = [
 ]
 
 [[package]]
+name = "loguru"
+version = "0.7.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-cu128') or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-cu130') or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-rocm') or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-xpu') or (extra == 'extra-14-text-hackathon-cu128' and extra == 'extra-14-text-hackathon-cu130') or (extra == 'extra-14-text-hackathon-cu128' and extra == 'extra-14-text-hackathon-rocm') or (extra == 'extra-14-text-hackathon-cu128' and extra == 'extra-14-text-hackathon-xpu') or (extra == 'extra-14-text-hackathon-cu130' and extra == 'extra-14-text-hackathon-rocm') or (extra == 'extra-14-text-hackathon-cu130' and extra == 'extra-14-text-hackathon-xpu') or (extra == 'extra-14-text-hackathon-rocm' and extra == 'extra-14-text-hackathon-xpu')" },
+    { name = "win32-setctime", marker = "sys_platform == 'win32' or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-cu128') or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-cu130') or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-rocm') or (extra == 'extra-14-text-hackathon-cpu' and extra == 'extra-14-text-hackathon-xpu') or (extra == 'extra-14-text-hackathon-cu128' and extra == 'extra-14-text-hackathon-cu130') or (extra == 'extra-14-text-hackathon-cu128' and extra == 'extra-14-text-hackathon-rocm') or (extra == 'extra-14-text-hackathon-cu128' and extra == 'extra-14-text-hackathon-xpu') or (extra == 'extra-14-text-hackathon-cu130' and extra == 'extra-14-text-hackathon-rocm') or (extra == 'extra-14-text-hackathon-cu130' and extra == 'extra-14-text-hackathon-xpu') or (extra == 'extra-14-text-hackathon-rocm' and extra == 'extra-14-text-hackathon-xpu')" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3a/05/a1dae3dffd1116099471c643b8924f5aa6524411dc6c63fdae648c4f1aca/loguru-0.7.3.tar.gz", hash = "sha256:19480589e77d47b8d85b2c827ad95d49bf31b0dcde16593892eb51dd18706eb6", size = 63559, upload-time = "2024-12-06T11:20:56.608Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0c/29/0348de65b8cc732daa3e33e67806420b2ae89bdce2b04af740289c5c6c8c/loguru-0.7.3-py3-none-any.whl", hash = "sha256:31a33c10c8e1e10422bfd431aeb5d351c7cf7fa671e3c4df004162264b28220c", size = 61595, upload-time = "2024-12-06T11:20:54.538Z" },
+]
+
+[[package]]
 name = "mako"
 version = "1.3.10"
 source = { registry = "https://pypi.org/simple" }
@@ -2467,6 +2480,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pip"
+version = "25.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fe/6e/74a3f0179a4a73a53d66ce57fdb4de0080a8baa1de0063de206d6167acc2/pip-25.3.tar.gz", hash = "sha256:8d0538dbbd7babbd207f261ed969c65de439f6bc9e5dbd3b3b9a77f25d95f343", size = 1803014, upload-time = "2025-10-25T00:55:41.394Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/44/3c/d717024885424591d5376220b5e836c2d5293ce2011523c9de23ff7bf068/pip-25.3-py3-none-any.whl", hash = "sha256:9655943313a94722b7774661c21049070f6bbb0a1516bf02f7c8d5d9201514cd", size = 1778622, upload-time = "2025-10-25T00:55:39.247Z" },
+]
+
+[[package]]
 name = "platformdirs"
 version = "4.5.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3442,6 +3464,7 @@ name = "text-hackathon"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "loguru" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
@@ -3478,12 +3501,14 @@ dev = [
     { name = "mlflow" },
     { name = "nbconvert" },
     { name = "notebook" },
+    { name = "pip" },
     { name = "pytest" },
     { name = "ruff" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "loguru", specifier = ">=0.7.3" },
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "numpy", specifier = ">=2.3.5" },
     { name = "pandas", specifier = ">=2.3.3" },
@@ -3508,6 +3533,7 @@ dev = [
     { name = "mlflow", specifier = ">=3.6.0" },
     { name = "nbconvert", specifier = ">=7.16.6" },
     { name = "notebook", specifier = ">=7.5.0" },
+    { name = "pip", specifier = ">=25.3" },
     { name = "pytest", specifier = ">=9.0.1" },
     { name = "ruff", specifier = ">=0.14.6" },
 ]
@@ -3947,6 +3973,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/9f/69/83029f1f6300c5fb2471d621ab06f6ec6b3324685a2ce0f9777fd4a8b71e/werkzeug-3.1.3.tar.gz", hash = "sha256:60723ce945c19328679790e3282cc758aa4a6040e4bb330f53d30fa546d44746", size = 806925, upload-time = "2024-11-08T15:52:18.093Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/52/24/ab44c871b0f07f491e5d2ad12c9bd7358e527510618cb1b803a88e986db1/werkzeug-3.1.3-py3-none-any.whl", hash = "sha256:54b78bf3716d19a65be4fceccc0d1d7b89e608834989dfae50ea87564639213e", size = 224498, upload-time = "2024-11-08T15:52:16.132Z" },
+]
+
+[[package]]
+name = "win32-setctime"
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b3/8f/705086c9d734d3b663af0e9bb3d4de6578d08f46b1b101c2442fd9aecaa2/win32_setctime-1.2.0.tar.gz", hash = "sha256:ae1fdf948f5640aae05c511ade119313fb6a30d7eabe25fef9764dca5873c4c0", size = 4867, upload-time = "2024-12-07T15:28:28.314Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/07/c6fe3ad3e685340704d314d765b7912993bcb8dc198f0e7a89382d37974b/win32_setctime-1.2.0-py3-none-any.whl", hash = "sha256:95d644c4e708aba81dc3704a116d8cbc974d70b3bdb8be1d150e36be6e9d1390", size = 4083, upload-time = "2024-12-07T15:28:26.465Z" },
 ]
 
 [[package]]
