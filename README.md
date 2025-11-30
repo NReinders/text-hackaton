@@ -14,8 +14,25 @@ We gebruiken **uv** als package manager.
 ```bash
 git clone https://github.com/NReinders/text-hackaton.git
 cd text-hackathon
-uv sync
+uv sync --extra cpu
 ```
+
+### Hardware-specifieke installatie
+
+Dit project maakt gebruik van [`PyTorch`](https://pytorch.org/). Standaard wordt de CPU-versie 
+geïnstallerd (`--extra cpu`), al is er ondersteuning voor de volgende hardware:
+
+|Hardware               |Extra  |
+|-----------------------|-------|
+|Alleen CPU             |cpu    |
+|Intel Arc GPU          |xpu    |
+|NVIDIA CUDA v. 12.8    |cu128  |
+|NVIDIA CUDA v. 13.0    |cu130  |
+|AMD ROCm 6.4           |rocm   |
+
+
+Afhankelijk van je hardware gebruik je de extra uit bovenstaande tabel om PyTorch met je hardware 
+te gebruiken.
 
 ## Projectstructuur
 
