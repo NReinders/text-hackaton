@@ -758,5 +758,6 @@ FodyWeavers.xsd
 
 
 !.gitkeep
+config.toml
 data/*
 models/*
