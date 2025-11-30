@@ -18,6 +18,7 @@ dependencies = [
     "loguru>=0.7.3",
     "matplotlib>=3.10.7",
     "numpy>=2.3.5",
+    "ollama>=0.6.1",
     "pandas>=2.3.3",
     "polars>=1.35.2",
     "requests>=2.32.5",
